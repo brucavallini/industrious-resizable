@@ -1,0 +1,763 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("../fonts/Raleway-Regular.ttf");
+    font-family: "Raleway-Bold";
+    src: url("../fonts/Raleway-Bold.ttf");
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ce1b28;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #111111;
+}
+
+h1,
+h2,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+// NAV BAR FIXA
+.navbar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #111111;
+    color: white;
+    padding: 10px 20px;
+    z-index: 10;
+
+    // NAV BAR FIXA TOGGLE DIREITA
+    .sidenav {
+        position: fixed;
+        height: 100%;
+        width: 300px;
+        background-color: #111111;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        overflow-x: hidden;
+        box-shadow: 0px 0px 4px 0.5px rgba(0, 0, 0, 0.5);
+        transition: .5s;
+
+        &.closed {
+            right: -320px;
+        }
+
+        .btn-close {
+            padding: 15px;
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.5);
+            transition: 0.3s;
+
+            &:hover {
+                color: white;
+            }
+        }
+
+        .list-side {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            margin-left: 25px;
+            margin-top: 50px;
+
+            .link-side {
+                text-decoration: none;
+                margin-top: 20px;
+                color: rgba(255, 255, 255, 0.5);
+                transition: 0.3s;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                width: 90%;
+                padding-bottom: 15px;
+                font-size: 15px;
+
+                &:last-child {
+                    border: 0;
+                }
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .menu-title {
+        font-family: "Raleway-Bold";
+        font-size: 14px;
+    }
+
+    .toggle {
+        font-size: 14px;
+        color: gray;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+
+        .fa-bars {
+            padding-right: 5px;
+        }
+
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+.main {
+    background: url(../img/banner.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        background-image: linear-gradient(135deg, #ce1b28 0%, #111111 75%);
+        opacity: 0.7;
+        height: 70vh;
+        width: 100%;
+    }
+
+    .main-text {
+        z-index: 1;
+        text-align: center;
+        font-family: "Raleway";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 50px;
+
+        .main-title {
+            font-weight: 300;
+            font-size: 30px;
+            color: white;
+            margin-bottom: 10px;
+
+        }
+
+        .main-subtitle {
+            text-align: center;
+            font-weight: 400;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 25px;
+            width: 80%;
+
+            .subtitle-link {
+                text-decoration: none;
+                color: rgba(255, 255, 255, 0.5);
+                transition: 0.4s;
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+// SECTION GRID
+.grid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 2rem;
+
+    &::after {
+        content: "";
+        background: url("../img/bg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.05;
+    }
+
+    .grid-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .grid-title {
+            margin-top: 2rem;
+            font-weight: 300;
+            font-size: 26px;
+            color: #444444;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .grid-subtitle {
+            font-weight: 300;
+            font-size: 15px;
+            color: #444444;
+            text-align: center;
+            width: 75%;
+            line-height: 25px;
+        }
+    }
+
+    .cards {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .card {
+            text-align: center;
+            background-color: white;
+            height: 100%;
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            color: #444444;
+            box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.025);
+            border-radius: 3px;
+
+            .far,
+            .fas {
+                margin-top: 20px;
+                margin-bottom: 10px;
+                color: #ce1b28;
+                font-size: 70px;
+            }
+
+            .card-title {
+                font-weight: 300;
+                font-size: 18px;
+            }
+
+            .card-text {
+                padding: 0 45px;
+                font-size: 15px;
+                line-height: 22px;
+            }
+        }
+    }
+}
+
+// SECTION PARALLAX
+.parallax {
+    background: linear-gradient(rgba(206, 27, 40, 0.3), rgba(206, 27, 40, 0.3)),
+        url("../img/building.jpg");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    // background-attachment: fixed;
+    padding: 0 20px;
+    width: 100%;
+
+    .parallax-text {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .parallax-title {
+            text-align: center;
+            font-weight: 300;
+            font-size: 25px;
+            color: white;
+        }
+
+        .parallax-subtitle {
+            text-align: center;
+            line-height: 22px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+        }
+    }
+}
+
+// SECTION TESTIMONIALS
+.testimonials {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 3rem;
+
+    &::after {
+        content: "";
+        background: url("../img/bg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.05;
+    }
+
+    .testimonials-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .testimonials-title {
+            text-align: center;
+            margin-top: 2rem;
+            font-weight: 300;
+            font-size: 28px;
+            color: #444444;
+            margin-bottom: 10px;
+        }
+
+        .testimonials-subtitle {
+            font-weight: 300;
+            font-size: 15px;
+            color: #444444;
+            text-align: center;
+            width: 70%;
+            line-height: 25px;
+        }
+    }
+
+    .testimonials-card {
+        background-color: white;
+        padding: 20px 30px;
+        margin-top: 30px;
+        box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.025);
+        border-radius: 3px;
+
+        .testimonial {
+            border-left: 7px solid #bfbfbf;
+            font-size: 15px;
+            font-style: italic;
+            text-align: left;
+            color: #444444;
+            line-height: 22px;
+            padding: 1rem 0 1rem 2.5rem;
+        }
+
+        .people {
+            display: flex;
+            align-items: center;
+
+
+            .img-responsive {
+                position: relative;
+                display: inline-block;
+                width: 5em;
+                margin-top: 15px;
+
+                .img {
+                    max-width: 100%;
+                    border-radius: 100%;
+                    display: block;
+                }
+            }
+
+            .people-text {
+                color: #444444;
+                font-size: 11px;
+                margin-top: 20px;
+
+                .people-span {
+                    font-weight: 700;
+                    color: #ce1b28;
+                }
+            }
+        }
+    }
+}
+
+// FOOTER
+.footer {
+    padding-top: 30px;
+    background-color: #111111;
+
+    .footer-box {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        width: 100%;
+        padding-bottom: 30px;
+
+        .footer-text {
+            text-align: justify;
+
+            .footer-title {
+                font-size: 19px;
+                color: white;
+                font-weight: 300;
+            }
+
+            .footer-paragraph {
+                color: rgba(255, 255, 255, 0.5);
+                font-size: 15px;
+                line-height: 22px;
+            }
+        }
+
+        .footer-text-1 {
+
+            .footer-title-1 {
+                font-size: 15px;
+                color: white;
+                font-weight: 300;
+            }
+
+            .list-link {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                .line {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+                    padding: 13px 0;
+
+                    &:last-child {
+                        border: none;
+                    }
+
+                    &:first-child {
+                        padding-top: 5px;
+                    }
+                }
+
+                .link-decoration {
+                    text-decoration: none;
+                    color: rgba(255, 255, 255, 0.5);
+                    transition: 0.3s;
+                    font-size: 15px;
+
+                    &:hover {
+                        color: #ce1b28;
+                    }
+                }
+            }
+        }
+
+        .footer-text-2 {
+
+            .footer-title-2 {
+                margin-top: 25px;
+                font-size: 15px;
+                color: white;
+                font-weight: 300;
+                white-space: nowrap;
+            }
+        }
+
+        .list-link-1 {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            .media {
+                margin-top: 10px;
+
+                a {
+                    font-size: 15px;
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    color: rgba(255, 255, 255, 0.5);
+
+                    &:hover {
+                        color: #ce1b28;
+                    }
+
+                    .icon {
+                        border-radius: 5px;
+                        color: #ffffff;
+                        margin-right: 10px;
+                        text-align: center;
+                        width: 30px;
+                        height: 30px;
+                        background: black;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .fab {
+                        font-size: 18px;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// CRÉDITOS
+.credit {
+    text-align: center;
+    padding: 20px 0;
+    margin: 0 20px;
+
+    .credit-text {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.3);
+
+        .cover {
+            color: rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            transition: .3s;
+
+            &:hover {
+                color: #ce1b28;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 575px) {
+    .grid {
+        .grid-text {
+            .grid-subtitle {
+                margin-top: 20px;
+                margin-bottom: 40px;
+            }
+        }
+    }
+
+    .parallax {
+        padding: 40px 0;
+
+        .parallax-title {
+            margin-bottom: 50px;
+        }
+    }
+
+    .people {
+        .people-text {
+            font-size: 12px;
+        }
+    }
+}
+
+
+@media (max-width: 991px) {
+    .testimonials {
+        .testimonials-card {
+            .people {
+                .people-text {
+                    margin-left: 30px;
+                }
+            }
+        }
+    }
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .main {
+        .main-text {
+            .main-title {
+                font-size: 30px;
+            }
+
+            .main-subtitle {
+                font-size: 20px;
+                line-height: 30px;
+            }
+        }
+    }
+
+    .grid {
+        .grid-text {
+            .grid-title {
+                margin-top: 4rem;
+                font-size: 30px;
+            }
+
+            .grid-subtitle {
+                margin-bottom: 40px;
+                font-size: 16px;
+            }
+        }
+
+        .cards {
+            margin-top: 15px;
+
+            .card {
+                .card-title {
+                    font-size: 20px;
+                }
+
+                .card-text {
+                    font-size: 16px;
+                    line-height: 25px;
+                }
+            }
+        }
+    }
+
+    .parallax {
+        padding: 40px 0;
+
+        .parallax-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            .parallax-title {
+                margin-bottom: 20px;
+                font-size: 32px;
+            }
+
+            .parallax-subtitle {
+                margin: 0 -30px;
+                font-size: 16px;
+                line-height: 25px;
+            }
+        }
+    }
+
+    .testimonials {
+        .testimonials-text {
+            .testimonials-title {}
+
+            .testimonials-subtitle {
+                font-size: 16px;
+            }
+        }
+
+        .testimonials-card {
+            .testimonial {
+                font-size: 17px;
+            }
+
+            .people {
+                .img {}
+
+                .people-text {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .main {
+        height: 80vh;
+
+        &::before {
+            height: 80vh;
+        }
+
+        .main-text {
+            .main-title {
+                font-size: 60px;
+                margin-bottom: 20px;
+            }
+
+            .main-subtitle {
+                font-size: 22px;
+            }
+        }
+    }
+
+    .parallax {
+        background-attachment: fixed;
+        padding: 60px 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .main {
+        height: 90vh;
+
+        &::before {
+            height: 90vh;
+        }
+
+        .main-text {
+            .main-subtitle {
+                width: 60%;
+            }
+        }
+    }
+
+    .grid {
+        padding: 100px 0;
+
+        .grid-text {
+            .grid-title {
+                margin-top: 0;
+                margin-bottom: 20px;
+            }
+
+            .grid-subtitle {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .parallax {
+        padding: 120px 0;
+
+        .parallax-text {
+            .parallax-title {}
+
+            .parallax-subtitle {
+                font-size: 15px;
+            }
+        }
+    }
+
+    .testimonials {
+        padding: 90px 0;
+
+        .testimonials-text {
+            margin-bottom: 30px;
+
+            .testimonials-title {
+                font-size: 35px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .testimonials-card {
+            padding: 45px 35px;
+
+            .people {
+                .img {
+                    width: 3em;
+                    height: 3em;
+                }
+
+                .people-text {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}
